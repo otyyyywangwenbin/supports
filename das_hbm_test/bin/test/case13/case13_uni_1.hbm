@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class dynamic-insert="true" dynamic-update="true" entity-name="case13_uni_1.One" table="CASE13_UNI_1_ONE">
+        <tuplizer class="com.primeton.server.das.tuplizer.SDOEntityTuplizer" entity-mode="sdo"/>
+        <id name="id" type="string" column="CASE13_UNI_1_ONE_ID">
+            <generator class="assigned"/>
+        </id>
+        <property name="name" type="string" column="CASE13_UNI_1_ONE_NAME"/>
+        <property name="many_size" type="int" formula="(select count(*) from CASE13_UNI_1_MANY  where CASE13_UNI_1_MANY.CASE13_UNI_1_ONE_ID = CASE13_UNI_1_ONE_ID )"/>
+        <bag name="many" cascade="save-update" >
+        	<key column="CASE13_UNI_1_ONE_ID"/>
+        	<one-to-many entity-name="case13_uni_1.Many"/>
+    	</bag>
+    </class>
+    <class dynamic-insert="true" dynamic-update="true" entity-name="case13_uni_1.Many" table="CASE13_UNI_1_MANY">
+        <tuplizer class="com.primeton.server.das.tuplizer.SDOEntityTuplizer" entity-mode="sdo"/>
+        <id name="id" type="string" column="CASE13_UNI_1_MANY_ID">
+            <generator class="assigned"/>
+        </id>
+        <property name="name" type="string" column="CASE13_UNI_1_MANY_NAME"/>
+    </class>
+</hibernate-mapping>

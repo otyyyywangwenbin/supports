@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class dynamic-insert="true" dynamic-update="true" entity-name="case12_uni_1.Person" table="CASE12_UNI_1_PERSON">
+        <tuplizer class="com.primeton.server.das.tuplizer.SDOEntityTuplizer" entity-mode="sdo"/>
+        <id name="name" type="string" column="PERSON_NAME">
+            <generator class="assigned"/>
+        </id>
+        <one-to-one name="address" entity-name="case12_uni_1.Address" cascade="all" constrained="false">
+        	<formula>PERSON_NAME</formula>
+        	<formula>'HOME'</formula>
+    	</one-to-one>
+    	<one-to-one name="mailingAddress" entity-name="case12_uni_1.Address" cascade="all" constrained="false">
+        	<formula>PERSON_NAME</formula>
+        	<formula>'MAILING'</formula>
+    	</one-to-one>
+    </class>
+    <class dynamic-insert="true" dynamic-update="true" entity-name="case12_uni_1.Address" table="CASE12_UNI_1_ADDRESS" check="type in ('MAILING', 'HOME', 'BUSINESS')">
+        <tuplizer class="com.primeton.server.das.tuplizer.SDOEntityTuplizer" entity-mode="sdo"/>
+        <composite-id>
+        	<key-many-to-one name="person" entity-name="case12_uni_1.Person" column="PERSON_NAME"/> 
+        	<key-property name="type" type="string" column="ADDRESS_TYPE"/>
+    	</composite-id>
+        <property name="street" type="string" column="STREET"/>
+    </class>
+</hibernate-mapping>

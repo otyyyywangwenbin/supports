@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class dynamic-insert="true" dynamic-update="true" entity-name="case6_bi_1.One1" table="CASE6_BI_1_ONE_1">
+        <tuplizer class="com.primeton.server.das.tuplizer.SDOEntityTuplizer" entity-mode="sdo"/>
+        <id name="id" type="string" column="CASE6_BI_1_ONE_1_ID">
+            <generator class="assigned"/>
+        </id>
+        <property name="name" type="string" column="CASE6_BI_1_ONE_1_NAME"/>
+        <many-to-one name="one2" 
+        	entity-name="case6_bi_1.One2"
+        	column="CASE6_BI_1_ONE_2_ID" 
+        	unique="true"
+        	not-null="true"/>
+    </class>
+    <class dynamic-insert="true" dynamic-update="true" entity-name="case6_bi_1.One2" table="CASE6_BI_1_ONE_2">
+        <tuplizer class="com.primeton.server.das.tuplizer.SDOEntityTuplizer" entity-mode="sdo"/>
+        <id name="id" type="string" column="CASE6_BI_1_ONE_2_ID">
+            <generator class="assigned"/>
+        </id>
+        <property name="name" type="string" column="CASE6_BI_1_ONE_2_NAME"/>
+        <one-to-one name="one1" entity-name="case6_bi_1.One1" property-ref="one2" />
+    </class>
+</hibernate-mapping>

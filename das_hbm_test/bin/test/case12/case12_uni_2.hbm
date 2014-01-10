@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class dynamic-insert="true" dynamic-update="true" entity-name="case12_uni_2.Many1" table="CASE12_UNI_2_MANY_1">
+        <tuplizer class="com.primeton.server.das.tuplizer.SDOEntityTuplizer" entity-mode="sdo"/>
+        <id name="id" type="string" column="CASE12_UNI_2_MANY_1_ID">
+            <generator class="assigned"/>
+        </id>
+        <property name="name" type="string" column="CASE12_UNI_2_MANY_1_NAME"/>
+        <bag name="many2" >
+        	<key column="CASE12_UNI_2_MANY_1_ID"/>
+        	<many-to-many column="CASE12_UNI_2_MANY_2_ID" entity-name="case12_uni_2.Many2" formula="(select 111 from dual)"/>
+    	</bag>
+    </class>
+    <class dynamic-insert="true" dynamic-update="true" entity-name="case12_uni_2.Many2" table="CASE12_UNI_2_MANY_2">
+        <tuplizer class="com.primeton.server.das.tuplizer.SDOEntityTuplizer" entity-mode="sdo"/>
+        <id name="id" type="string" column="CASE12_UNI_2_MANY_2_ID">
+            <generator class="assigned"/>
+        </id>
+        <property name="name" type="string" column="CASE12_UNI_2_MANY_2_NAME"/>
+    </class>
+</hibernate-mapping>

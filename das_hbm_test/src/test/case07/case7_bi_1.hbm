@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class dynamic-insert="true" dynamic-update="true" entity-name="case7_bi_1.One" table="CASE7_BI_1_ONE">
+        <tuplizer class="com.primeton.server.das.tuplizer.SDOEntityTuplizer" entity-mode="sdo"/>
+        <id name="id" type="string" column="CASE7_BI_1_ONE_ID">
+            <generator class="assigned"/>
+        </id>
+        <property name="name" type="string" column="CASE7_BI_1_ONE_NAME"/>
+        <bag name="many">
+        	<key column="CASE7_BI_1_ONE_ID"/>
+        	<one-to-many entity-name="case7_bi_1.Many"/>
+    	</bag>
+    </class>
+    <class dynamic-insert="true" dynamic-update="true" entity-name="case7_bi_1.Many" table="CASE7_BI_1_MANY">
+        <tuplizer class="com.primeton.server.das.tuplizer.SDOEntityTuplizer" entity-mode="sdo"/>
+        <id name="id" type="string" column="CASE7_BI_1_MANY_ID">
+            <generator class="assigned"/>
+        </id>
+        <property name="name" type="string" column="CASE7_BI_1_MANY_NAME"/>
+        <many-to-one name="one"
+      		column="CASE7_BI_1_ONE_ID"
+      		entity-name="case7_bi_1.One"
+      		not-null="true"
+      		insert="false"
+      		update="false"/>
+    </class>
+</hibernate-mapping>

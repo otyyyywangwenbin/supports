@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class dynamic-insert="true" dynamic-update="true" entity-name="case9_uni_2.One1" table="CASE9_UNI_2_ONE_1">
+        <tuplizer class="com.primeton.server.das.tuplizer.SDOEntityTuplizer" entity-mode="sdo"/>
+        <id name="id" type="string" column="CASE9_UNI_2_ONE_1_ID">
+        	<generator class="foreign">
+            	<param name="property">one2</param>
+        	</generator>
+        </id>
+        <one-to-one name="one2" entity-name="case9_uni_2.One2" constrained="true" cascade="delete"/>
+        <property name="name" type="string" column="CASE9_UNI_2_ONE_1_NAME"/>
+    </class>
+    <class dynamic-insert="true" dynamic-update="true" entity-name="case9_uni_2.One2" table="CASE9_UNI_2_ONE_2">
+        <tuplizer class="com.primeton.server.das.tuplizer.SDOEntityTuplizer" entity-mode="sdo"/>
+        <id name="id" type="string" column="CASE9_UNI_2_ONE_2_ID">
+            <generator class="assigned"/>
+        </id>
+        <property name="name" type="string" column="CASE9_UNI_2_ONE_2_NAME"/>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns="case3" xmlns:sdo="commonj.sdo" xmlns:sdoJava="commonj.sdo/java" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="case3">
+    <xs:complexType name="Parent" abstract="true">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="parent_id" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="parent_name" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Sub1">
+    	<xs:complexContent>
+    		<xs:extension base="Parent">
+    			<xs:element minOccurs="0" name="sub1_name" nillable="true" type="xs:string"/>
+    		</xs:extension>
+    	</xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="Sub2">
+    	<xs:complexContent>
+    		<xs:extension base="Parent">
+    			<xs:element minOccurs="0" name="sub2_name" nillable="true" type="xs:string"/>
+    		</xs:extension>
+    	</xs:complexContent>
+    </xs:complexType>
+</xs:schema>

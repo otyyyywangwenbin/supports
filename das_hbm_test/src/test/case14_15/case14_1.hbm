@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class dynamic-insert="true" dynamic-update="true" entity-name="case14_1.One" table="CASE14_1_ONE">
+        <tuplizer class="com.primeton.server.das.tuplizer.SDOEntityTuplizer" entity-mode="sdo"/>
+        <id name="id" type="string" column="ONE_ID">
+            <generator class="assigned"/>
+        </id>
+        <property name="name" type="string" column="ONE_NAME"/>
+        <property name="name2" type="string" insert="false" update="false" column="ONE_NAME"/>
+    </class>
+</hibernate-mapping>

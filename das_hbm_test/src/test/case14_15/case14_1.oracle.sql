@@ -1,0 +1,9 @@
+DROP TABLE
+    CASE14_1_ONE CASCADE constraints purge;
+CREATE TABLE
+    CASE14_1_ONE
+    (     
+        ONE_ID VARCHAR2(20) NOT NULL,
+        ONE_NAME VARCHAR2(20),
+        PRIMARY KEY (ONE_ID)
+    );

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns="case12_uni_1" xmlns:sdo="commonj.sdo" xmlns:sdoJava="commonj.sdo/java" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="case12_uni_1">
+    <xs:complexType name="Person">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="address" nillable="true" type="Address"/>
+            <xs:element minOccurs="0" name="mailingAddress" nillable="true" type="Address"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Address">
+    	<xs:sequence>
+            <xs:element minOccurs="0" name="person" nillable="true" type="Person"/>
+            <xs:element minOccurs="0" name="type" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="street" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

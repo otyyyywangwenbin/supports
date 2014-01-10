@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class dynamic-insert="true" dynamic-update="true" entity-name="case3.Parent">
+        <tuplizer class="com.primeton.server.das.tuplizer.SDOEntityTuplizer" entity-mode="sdo"/>
+        <id name="parent_id" type="string" column="CASE3_PARENT_ID">
+            <generator class="assigned"/>
+        </id>
+        <property name="parent_name" type="string" column="CASE3_PARENT_NAME"/>
+        
+        <union-subclass entity-name="case3.Sub1" table="CASE3_SUB1">
+        	<property name="sub1_name" type="string" column="CASE3_SUB1_NAME"/>
+    	</union-subclass>
+        
+        <union-subclass entity-name="case3.Sub2" table="CASE3_SUB2">
+        	<property name="sub2_name" type="string" column="CASE3_SUB2_NAME"/>
+    	</union-subclass>
+    </class>
+</hibernate-mapping>

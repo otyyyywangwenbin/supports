@@ -1,0 +1,4 @@
+TestCase6_uni_1: 单向一对一, 基于外键关联
+TestCase6_uni_2: 单向一对一, 基于基于主键关联
+TestCase6_bi_1: 双向一对一, 基于外键关联
+TestCase6_bi_2: 双向一对一, 基于基于主键关联
